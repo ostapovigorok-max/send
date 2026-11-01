@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Instagram, Sparkles, ArrowRight, ShieldCheck, MapPin } from 'lucide-react';
+import { MessageCircle, Send, Sparkles, ArrowRight, ShieldCheck, MapPin } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
 import { siteConfig } from '@/lib/config';
@@ -44,25 +44,45 @@ export function Hero({ onOpenBooking }: HeroProps) {
               Индивидуальное моделирование взгляда от полуклассики до Mega Volume, долговременная укладка и ламинирование. Стойкая комфортная носка в климате Израиля.
             </p>
 
-            {/* Direct Booking Actions (Instagram Direct Primary) */}
-            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            {/* Direct Booking Actions (WhatsApp Primary, Telegram Secondary) */}
+            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
+              {/* Primary WhatsApp */}
               <a
-                href={siteConfig.instagram1}
+                href={siteConfig.getWhatsAppBookingUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto"
               >
                 <Button
-                  variant="instagram"
+                  variant="whatsapp"
                   size="lg"
                   fullWidth
-                  className="shadow-md hover:shadow-lg gap-2.5 text-sm"
+                  className="shadow-md hover:shadow-lg gap-2 text-sm"
                 >
-                  <Instagram className="w-4 h-4" />
-                  Записаться в Instagram
+                  <MessageCircle className="w-4 h-4 fill-white" />
+                  Записаться в WhatsApp
                 </Button>
               </a>
 
+              {/* Secondary Telegram */}
+              <a
+                href={siteConfig.getTelegramBookingUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto"
+              >
+                <Button
+                  variant="telegram"
+                  size="lg"
+                  fullWidth
+                  className="shadow-sm hover:shadow-md gap-2 text-sm"
+                >
+                  <Send className="w-4 h-4 fill-white" />
+                  Написать в Telegram
+                </Button>
+              </a>
+
+              {/* All contacts & Maps */}
               <Button
                 variant="outline"
                 size="lg"
@@ -70,7 +90,7 @@ export function Hero({ onOpenBooking }: HeroProps) {
                 className="w-full sm:w-auto text-sm"
               >
                 Все контакты и карта
-                <ArrowRight className="w-4 h-4 ml-2" />
+                <ArrowRight className="w-4 h-4 ml-1.5" />
               </Button>
             </div>
 

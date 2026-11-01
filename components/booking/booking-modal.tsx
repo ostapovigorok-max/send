@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Instagram, MapPin, Clock, Sparkles, ExternalLink, Copy, Check } from 'lucide-react';
+import { X, MessageCircle, Send, Instagram, MapPin, Phone, Sparkles, ExternalLink, Copy, Check } from 'lucide-react';
 import { siteConfig } from '@/lib/config';
 import { Button } from '@/components/ui/button';
 
@@ -26,6 +26,8 @@ export function BookingModal({
   selectedService,
 }: BookingModalProps) {
   const [copied, setCopied] = useState(false);
+  const whatsAppUrl = siteConfig.getWhatsAppBookingUrl(selectedService || undefined);
+  const telegramUrl = siteConfig.getTelegramBookingUrl(selectedService || undefined);
   const bookingMessage = siteConfig.getBookingMessage(selectedService || undefined);
 
   const handleCopyMessage = () => {
@@ -68,7 +70,7 @@ export function BookingModal({
             <div className="text-center mb-6">
               <span className="luxury-eyebrow mb-2 block">Онлайн-запись • Ашдод</span>
               <h3 className="font-serif text-2xl sm:text-3xl text-espresso-900 font-medium">
-                Запись к мастеру
+                Запись на процедуру
               </h3>
               <div className="w-12 h-[1px] bg-gold mx-auto my-3" />
               {selectedService ? (
@@ -78,23 +80,36 @@ export function BookingModal({
                 </div>
               ) : (
                 <p className="text-xs sm:text-sm text-espresso-700/75">
-                  Запись ведется напрямую в Instagram Direct. Напишите мастеру в удобное время.
+                  Быстрая запись напрямую через мессенджеры без звонков и ожидания.
                 </p>
               )}
             </div>
 
-            {/* Direct Booking Actions */}
+            {/* Direct Booking Actions (WhatsApp & Telegram) */}
             <div className="space-y-3 mb-6">
-              {/* Primary Instagram Direct */}
+              {/* WhatsApp Primary */}
               <a
-                href={siteConfig.instagram1}
+                href={whatsAppUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block"
               >
-                <Button variant="instagram" fullWidth size="lg" className="gap-2.5 text-sm">
-                  <Instagram className="w-4 h-4" />
-                  Написать в Instagram Direct ({siteConfig.instagram1Handle})
+                <Button variant="whatsapp" fullWidth size="lg" className="gap-2.5 text-sm">
+                  <MessageCircle className="w-5 h-5 fill-white" />
+                  Записаться в WhatsApp ({siteConfig.phone})
+                </Button>
+              </a>
+
+              {/* Telegram Secondary */}
+              <a
+                href={telegramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <Button variant="telegram" fullWidth size="lg" className="gap-2.5 text-sm">
+                  <Send className="w-4 h-4 fill-white" />
+                  Написать в Telegram ({siteConfig.telegramHandle})
                 </Button>
               </a>
 
@@ -102,7 +117,7 @@ export function BookingModal({
               <div className="p-3.5 rounded-2xl bg-champagne-100/90 border border-nude-200/70 text-left">
                 <div className="flex items-center justify-between mb-1.5">
                   <span className="text-[10px] uppercase tracking-wider text-espresso-600 font-semibold">
-                    Готовое сообщение для отправки:
+                    Текст сообщения с готовой заявкой:
                   </span>
                   <button
                     onClick={handleCopyMessage}
@@ -126,17 +141,25 @@ export function BookingModal({
                 </p>
               </div>
 
-              {/* Secondary Instagram & TikTok Grid */}
+              {/* Direct Phone Call Button */}
+              <a href={`tel:${siteConfig.phone}`} className="block">
+                <Button variant="outline" fullWidth size="md" className="gap-2 text-xs">
+                  <Phone className="w-4 h-4 text-gold-dark" />
+                  Позвонить в студию: {siteConfig.phone}
+                </Button>
+              </a>
+
+              {/* Instagram & TikTok Grid */}
               <div className="grid grid-cols-2 gap-2 pt-1">
                 <a
-                  href={siteConfig.instagram2}
+                  href={siteConfig.instagram1}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block"
                 >
                   <Button variant="outline" fullWidth size="sm" className="gap-1.5 text-xs py-2.5">
-                    <Instagram className="w-3.5 h-3.5 text-[#C13584]" />
-                    {siteConfig.instagram2Handle}
+                    <Instagram className="w-3.5 h-3.5 text-[#E1306C]" />
+                    {siteConfig.instagram1Handle}
                   </Button>
                 </a>
 
@@ -159,7 +182,7 @@ export function BookingModal({
               <div className="flex items-start gap-2 text-xs text-espresso-700/90">
                 <MapPin className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" />
                 <div>
-                  <strong>Локация:</strong> {siteConfig.address}
+                  <strong>Локация студии:</strong> {siteConfig.address}
                 </div>
               </div>
 

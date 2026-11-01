@@ -2,7 +2,7 @@ import React from 'react';
 import { cn } from './container';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'gold' | 'espresso' | 'outline' | 'ghost' | 'telegram' | 'instagram';
+  variant?: 'gold' | 'espresso' | 'outline' | 'ghost' | 'telegram' | 'instagram' | 'whatsapp';
   size?: 'sm' | 'md' | 'lg';
   fullWidth?: boolean;
   children: React.ReactNode;
@@ -31,6 +31,8 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       outline:
         'border border-espresso-800/30 text-espresso-900 hover:bg-espresso-900 hover:text-champagne-100 hover:border-transparent',
       ghost: 'text-espresso-800 hover:bg-champagne-200/70',
+      whatsapp:
+        'bg-[#25D366] text-white hover:bg-[#20BD5A] shadow-sm hover:shadow-md font-semibold',
       telegram:
         'bg-[#2AABEE] text-white hover:bg-[#229ED9] shadow-sm hover:shadow-md font-semibold',
       instagram:

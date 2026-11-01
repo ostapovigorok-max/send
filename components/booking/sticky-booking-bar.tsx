@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Instagram } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { siteConfig } from '@/lib/config';
 
@@ -24,12 +24,12 @@ export function StickyBookingBar({ onOpenBooking }: StickyBookingBarProps) {
 
         <div className="flex items-center gap-2">
           <Button
-            variant="instagram"
+            variant="whatsapp"
             size="sm"
             onClick={onOpenBooking}
             className="shadow-sm font-semibold text-xs px-5 py-2.5 gap-1.5"
           >
-            <Instagram className="w-3.5 h-3.5" />
+            <MessageCircle className="w-3.5 h-3.5 fill-white" />
             Записаться
           </Button>
         </div>

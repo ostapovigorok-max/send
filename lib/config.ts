@@ -1,5 +1,6 @@
 /**
  * Single Source of Truth for Polilash Ashdod (Lash & Brow Studio)
+ * Production Domain: https://beauty.oskar4you.pp.ua
  * Location: Ashdod, Israel
  */
 
@@ -71,19 +72,25 @@ export const siteConfig = {
   address: 'Ashdod, Israel',
 
   // Single-source URLs & Contacts
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://beauty.oskar4you.com',
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://beauty.oskar4you.pp.ua',
   currency: '₪', // Israeli New Shekel
 
-  // Socials & Direct Channels (Ashdod, Israel)
-  instagram1: 'https://www.instagram.com/brow._.poli',
+  // Phone & Instant Messengers (Ashdod, Israel)
+  phone: process.env.NEXT_PUBLIC_PHONE || '+972585964040',
+  whatsAppUrl: process.env.NEXT_PUBLIC_WHATSAPP_URL || 'https://wa.me/972585964040',
+  telegramUrl: process.env.NEXT_PUBLIC_TELEGRAM_URL || 'https://t.me/polinaLashAshdod',
+  telegramHandle: '@polinaLashAshdod',
+
+  // Socials & Direct Channels
+  instagram1: process.env.NEXT_PUBLIC_INSTAGRAM_URL || 'https://www.instagram.com/brow._.poli',
   instagram1Handle: '@brow._.poli',
   instagram1Label: 'Brow & Lash (Основной)',
 
-  instagram2: 'https://www.instagram.com/vugoraniya_net',
+  instagram2: process.env.NEXT_PUBLIC_INSTAGRAM2_URL || 'https://www.instagram.com/vugoraniya_net',
   instagram2Handle: '@vugoraniya_net',
   instagram2Label: 'Vugoraniya Studio',
 
-  tiktok: 'https://www.tiktok.com/@polilash.ashdod',
+  tiktok: process.env.NEXT_PUBLIC_TIKTOK_URL || 'https://www.tiktok.com/@polilash.ashdod',
   tiktokHandle: '@polilash.ashdod',
 
   googleMapsUrl: 'https://maps.google.com/maps?q=31.784744,34.651508&ll=31.784744,34.651508&z=16',
@@ -94,24 +101,34 @@ export const siteConfig = {
     lng: 34.651508,
   },
 
-  // Fallback direct phone / WhatsApp
-  phone: process.env.NEXT_PUBLIC_PHONE || '',
-
   workingHours: {
     days: 'Воскресенье – Пятница',
     hours: '10:00 – 20:00',
     policy: 'По предварительной записи',
   },
 
-  // Direct Booking URL generators
-  getInstagramBookingUrl: (serviceName?: string) => {
-    return 'https://www.instagram.com/brow._.poli';
+  // WhatsApp Deep-Link Generator with Pre-filled Message
+  getWhatsAppBookingUrl: (serviceName?: string) => {
+    const base = 'https://wa.me/972585964040';
+    const message = serviceName
+      ? `Здравствуйте! Хочу записаться на процедуру: ${serviceName} в Ашдоде.`
+      : 'Здравствуйте! Хочу записаться на ресницы / брови в Ашдоде.';
+    return `${base}?text=${encodeURIComponent(message)}`;
+  },
+
+  // Telegram Deep-Link Generator with Pre-filled Message
+  getTelegramBookingUrl: (serviceName?: string) => {
+    const base = 'https://t.me/polinaLashAshdod';
+    const message = serviceName
+      ? `Здравствуйте! Хочу записаться на процедуру: ${serviceName} в Ашдоде.`
+      : 'Здравствуйте! Хочу записаться на ресницы / брови в Ашдоде.';
+    return `${base}?text=${encodeURIComponent(message)}`;
   },
 
   getBookingMessage: (serviceName?: string) => {
     return serviceName
-      ? `Здравствуйте! Хочу записаться на процедуру: ${serviceName} в Ашдоде. Какие есть свободные окошки?`
-      : 'Здравствуйте! Хочу записаться на наращивание ресниц / брови в Ашдоде. Какие есть свободные окошки?';
+      ? `Здравствуйте! Хочу записаться на процедуру: ${serviceName} в Ашдоде.`
+      : 'Здравствуйте! Хочу записаться на ресницы / брови в Ашдоде.';
   },
 
   // Master Bio & Qualifications
@@ -476,7 +493,7 @@ export const reviewsData: ReviewItem[] = [
     id: 'r-3',
     clientName: 'Елена С.',
     service: 'Классика',
-    review: 'Прекрасная классика! Настолько аккуратно, что все думают, что это мои родные накрашенные ресницы. Быстрая запись через Инстаграм.',
+    review: 'Прекрасная классика! Настолько аккуратно, что все думают, что это мои родные накрашенные ресницы. Быстрая запись через WhatsApp.',
     date: '3 недели назад',
     rating: 5,
   },
@@ -510,7 +527,7 @@ export const faqData: FaqItem[] = [
   {
     id: 'faq-4',
     question: 'Как записаться на процедуру?',
-    answer: 'Основной и самый быстрый способ записи — Direct в Instagram (@brow._.poli). Просто нажмите кнопку «Записаться в Instagram», и мы подберем удобное для вас время.',
+    answer: 'Самый быстрый и удобный способ — написать в WhatsApp (+972 58 596 4040) или Telegram (@polinaLashAshdod). Также вы можете написать в Instagram Direct (@brow._.poli).',
   },
   {
     id: 'faq-5',

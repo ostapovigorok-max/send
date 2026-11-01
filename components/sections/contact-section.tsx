@@ -1,13 +1,12 @@
 'use client';
 
 import React from 'react';
-import { Instagram, MapPin, Clock, Navigation, ExternalLink, Sparkles } from 'lucide-react';
+import { MessageCircle, Send, Instagram, MapPin, Clock, Phone, Navigation, ExternalLink } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { siteConfig } from '@/lib/config';
 
-// Custom TikTok Icon
 function TikTokIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -39,27 +38,57 @@ export function ContactSection({ onOpenBooking }: ContactSectionProps) {
               </h2>
               <div className="w-12 h-[1px] bg-gold mx-auto my-3" />
               <p className="text-xs sm:text-sm text-espresso-700/80 font-light">
-                Основная запись осуществляется через Direct в Instagram. Нажмите на профиль мастера, чтобы написать сообщение и выбрать время.
+                Выберите удобный способ связи. Для мгновенной записи пишите в WhatsApp или Telegram.
               </p>
             </div>
 
-            {/* Social Channels & Booking Buttons */}
-            <div className="space-y-4 max-w-xl mx-auto mb-10">
-              {/* Primary Instagram */}
+            {/* Direct Booking Actions (WhatsApp & Telegram Primary) */}
+            <div className="space-y-3 max-w-xl mx-auto mb-8">
+              {/* WhatsApp Primary */}
               <a
-                href={siteConfig.instagram1}
+                href={siteConfig.getWhatsAppBookingUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block"
               >
-                <Button variant="instagram" fullWidth size="lg" className="gap-2.5 text-sm sm:text-base">
-                  <Instagram className="w-5 h-5" />
-                  Instagram: {siteConfig.instagram1Handle} (Основной)
+                <Button variant="whatsapp" fullWidth size="lg" className="gap-2.5 text-sm sm:text-base">
+                  <MessageCircle className="w-5 h-5 fill-white" />
+                  Записаться в WhatsApp ({siteConfig.phone})
                 </Button>
               </a>
 
-              {/* Secondary Instagram & TikTok Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {/* Telegram Secondary */}
+              <a
+                href={siteConfig.getTelegramBookingUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <Button variant="telegram" fullWidth size="lg" className="gap-2.5 text-sm sm:text-base">
+                  <Send className="w-5 h-5 fill-white" />
+                  Написать в Telegram ({siteConfig.telegramHandle})
+                </Button>
+              </a>
+
+              {/* Instagram & TikTok Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-2">
+                <a
+                  href={siteConfig.instagram1}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                >
+                  <Button
+                    variant="outline"
+                    fullWidth
+                    size="sm"
+                    className="gap-1.5 text-xs border-espresso-800/20 hover:border-transparent py-2.5"
+                  >
+                    <Instagram className="w-4 h-4 text-[#E1306C]" />
+                    {siteConfig.instagram1Handle}
+                  </Button>
+                </a>
+
                 <a
                   href={siteConfig.instagram2}
                   target="_blank"
@@ -69,10 +98,10 @@ export function ContactSection({ onOpenBooking }: ContactSectionProps) {
                   <Button
                     variant="outline"
                     fullWidth
-                    size="md"
-                    className="gap-2 text-xs border-espresso-800/20 hover:border-transparent"
+                    size="sm"
+                    className="gap-1.5 text-xs border-espresso-800/20 hover:border-transparent py-2.5"
                   >
-                    <Instagram className="w-4 h-4 text-[#E1306C]" />
+                    <Instagram className="w-4 h-4 text-[#C13584]" />
                     {siteConfig.instagram2Handle}
                   </Button>
                 </a>
@@ -86,11 +115,11 @@ export function ContactSection({ onOpenBooking }: ContactSectionProps) {
                   <Button
                     variant="outline"
                     fullWidth
-                    size="md"
-                    className="gap-2 text-xs border-espresso-800/20 hover:border-transparent"
+                    size="sm"
+                    className="gap-1.5 text-xs border-espresso-800/20 hover:border-transparent py-2.5"
                   >
                     <TikTokIcon className="w-4 h-4 text-espresso-900" />
-                    TikTok: {siteConfig.tiktokHandle}
+                    {siteConfig.tiktokHandle}
                   </Button>
                 </a>
               </div>
@@ -108,7 +137,7 @@ export function ContactSection({ onOpenBooking }: ContactSectionProps) {
                     {siteConfig.address} (31.784744, 34.651508)
                   </p>
                   <p className="text-xs text-espresso-600/80">
-                    Откройте прямой маршрут в удобном навигаторе
+                    Нажмите для открытия маршрута в навигаторе
                   </p>
                 </div>
 
@@ -139,7 +168,23 @@ export function ContactSection({ onOpenBooking }: ContactSectionProps) {
             </div>
 
             {/* Studio Details Footer Grid */}
-            <div className="pt-8 border-t border-nude-200/80 grid grid-cols-1 sm:grid-cols-2 gap-6 text-center sm:text-left">
+            <div className="pt-8 border-t border-nude-200/80 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center sm:text-left">
+              <div className="space-y-1">
+                <span className="text-[10px] uppercase tracking-wider text-gold font-semibold flex items-center justify-center sm:justify-start gap-1">
+                  <Phone className="w-3.5 h-3.5" />
+                  Телефон / WhatsApp
+                </span>
+                <a
+                  href={`tel:${siteConfig.phone}`}
+                  className="text-xs text-espresso-900 font-semibold hover:text-gold transition-colors block"
+                >
+                  {siteConfig.phone}
+                </a>
+                <p className="text-[11px] text-espresso-600/70">
+                  Звонки и сообщения в WhatsApp
+                </p>
+              </div>
+
               <div className="space-y-1">
                 <span className="text-[10px] uppercase tracking-wider text-gold font-semibold flex items-center justify-center sm:justify-start gap-1">
                   <MapPin className="w-3.5 h-3.5" />

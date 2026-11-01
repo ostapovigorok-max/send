@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Instagram, MapPin, Clock, ExternalLink } from 'lucide-react';
+import { MessageCircle, Send, Instagram, MapPin, Clock, Phone, ExternalLink } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { siteConfig } from '@/lib/config';
 
@@ -29,14 +29,34 @@ export function Footer() {
               {siteConfig.tagline}. Профессиональный уход за ресницами и бровями в уютной приватной студии.
             </p>
             {/* Social Icons Row */}
-            <div className="flex items-center gap-3 pt-2">
+            <div className="flex items-center gap-2.5 pt-2">
+              <a
+                href={siteConfig.getWhatsAppBookingUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-espresso-800 flex items-center justify-center text-champagne-100 hover:bg-[#25D366] hover:text-white transition-colors"
+                aria-label="WhatsApp"
+                title={`WhatsApp: ${siteConfig.phone}`}
+              >
+                <MessageCircle className="w-4 h-4 fill-current" />
+              </a>
+              <a
+                href={siteConfig.getTelegramBookingUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-espresso-800 flex items-center justify-center text-champagne-100 hover:bg-[#2AABEE] hover:text-white transition-colors"
+                aria-label="Telegram"
+                title={`Telegram: ${siteConfig.telegramHandle}`}
+              >
+                <Send className="w-4 h-4" />
+              </a>
               <a
                 href={siteConfig.instagram1}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-espresso-800 flex items-center justify-center text-champagne-100 hover:bg-[#E1306C] hover:text-white transition-colors"
                 aria-label="Instagram Brow & Lash"
-                title="Instagram: @brow._.poli"
+                title={`Instagram: ${siteConfig.instagram1Handle}`}
               >
                 <Instagram className="w-4 h-4" />
               </a>
@@ -46,7 +66,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-espresso-800 flex items-center justify-center text-champagne-100 hover:bg-[#C13584] hover:text-white transition-colors"
                 aria-label="Instagram Vugoraniya"
-                title="Instagram: @vugoraniya_net"
+                title={`Instagram: ${siteConfig.instagram2Handle}`}
               >
                 <Instagram className="w-4 h-4" />
               </a>
@@ -56,7 +76,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-espresso-800 flex items-center justify-center text-champagne-100 hover:bg-[#00F2FE] hover:text-black transition-colors"
                 aria-label="TikTok"
-                title="TikTok: @polilash.ashdod"
+                title={`TikTok: ${siteConfig.tiktokHandle}`}
               >
                 <TikTokIcon className="w-4 h-4" />
               </a>
@@ -123,10 +143,10 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Studio Location & Clickable Maps */}
+          {/* Studio Location, Phone & Clickable Maps */}
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-widest text-gold mb-4">
-              Локация и навигация
+              Локация и связь
             </h4>
             <div className="space-y-3 text-xs text-champagne-100/70">
               <div className="flex items-start gap-2">
@@ -141,6 +161,17 @@ export function Footer() {
                   <ExternalLink className="w-3 h-3 text-gold" />
                 </a>
               </div>
+
+              <div className="flex items-center gap-2">
+                <Phone className="w-4 h-4 text-gold flex-shrink-0" />
+                <a
+                  href={`tel:${siteConfig.phone}`}
+                  className="text-xs text-champagne-100 font-semibold hover:text-gold transition-colors"
+                >
+                  {siteConfig.phone}
+                </a>
+              </div>
+
               <div className="pt-2 flex flex-col gap-1.5 text-[11px]">
                 <a
                   href={siteConfig.googleMapsUrl}
@@ -170,28 +201,28 @@ export function Footer() {
           </p>
           <div className="flex items-center gap-4">
             <a
+              href={siteConfig.whatsAppUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#25D366] hover:underline font-medium"
+            >
+              WhatsApp: {siteConfig.phone}
+            </a>
+            <a
+              href={siteConfig.telegramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#2AABEE] hover:underline font-medium"
+            >
+              Telegram: {siteConfig.telegramHandle}
+            </a>
+            <a
               href={siteConfig.instagram1}
               target="_blank"
               rel="noopener noreferrer"
               className="text-gold hover:underline"
             >
               {siteConfig.instagram1Handle}
-            </a>
-            <a
-              href={siteConfig.instagram2}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gold/80 hover:underline"
-            >
-              {siteConfig.instagram2Handle}
-            </a>
-            <a
-              href={siteConfig.tiktok}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gold/80 hover:underline"
-            >
-              {siteConfig.tiktokHandle}
             </a>
           </div>
         </div>

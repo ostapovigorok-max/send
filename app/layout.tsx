@@ -26,9 +26,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.siteUrl),
+  metadataBase: new URL('https://beauty.oskar4you.pp.ua'),
   title: `${siteConfig.studioName} | Наращивание ресниц и брови в Ашдоде (Ashdod, Israel)`,
-  description: `${siteConfig.tagline}. Услуги: Классика, 2D, 3-4D, Mega Volume, ламинирование ресниц и бровей. Цены от 30 ₪ до 400 ₪. Запись через Instagram Direct (@brow._.poli). Ашдод, Израиль.`,
+  description: `${siteConfig.tagline}. Услуги: Классика, 2D, 3-4D, Mega Volume, ламинирование ресниц и бровей. Цены от 30 ₪ до 400 ₪. Запись через WhatsApp (+972 58 596 4040) и Telegram (@polinaLashAshdod). Ашдод, Израиль.`,
   keywords: [
     'наращивание ресниц Ашдод',
     'ресницы Ашдод',
@@ -39,17 +39,17 @@ export const metadata: Metadata = {
     'polilash ashdod',
     'ריסים אשדוד',
     'גבות אשדוד',
-    'beauty.oskar4you.com',
+    'beauty.oskar4you.pp.ua',
   ],
   authors: [{ name: siteConfig.masterName }],
   creator: siteConfig.masterName,
   openGraph: {
     type: 'website',
     locale: 'ru_RU',
-    url: siteConfig.siteUrl,
+    url: 'https://beauty.oskar4you.pp.ua',
     siteName: siteConfig.studioName,
     title: `${siteConfig.studioName} | Наращивание ресниц и брови • Ашдод, Израиль`,
-    description: `Профессиональное наращивание ресниц и укладка бровей в Ашдоде. Цены от 30 ₪. Запись онлайн в Instagram.`,
+    description: `Профессиональное наращивание ресниц и укладка бровей в Ашдоде. Цены от 30 ₪. Запись в WhatsApp и Telegram.`,
     images: [
       {
         url: '/images/placeholders/og-preview.jpg',
@@ -83,7 +83,8 @@ export default function RootLayout({
     name: siteConfig.studioName,
     image: `${siteConfig.siteUrl}/images/placeholders/hero-master.jpg`,
     description: siteConfig.tagline,
-    url: siteConfig.siteUrl,
+    url: 'https://beauty.oskar4you.pp.ua',
+    telephone: siteConfig.phone,
     priceRange: '₪30 - ₪400',
     currenciesAccepted: 'ILS',
     address: {
@@ -99,6 +100,8 @@ export default function RootLayout({
     },
     hasMap: siteConfig.googleMapsUrl,
     sameAs: [
+      siteConfig.whatsAppUrl,
+      siteConfig.telegramUrl,
       siteConfig.instagram1,
       siteConfig.instagram2,
       siteConfig.tiktok,
