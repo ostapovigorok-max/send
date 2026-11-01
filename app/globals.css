@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 97%; /* #F7F4EF champagne */
+    --foreground: 20 18% 15%; /* #2B231F espresso */
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-plus-jakarta), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #F7F4EF;
+    color: #2B231F;
+  }
+
+  body {
+    background-color: #F7F4EF;
+    color: #2B231F;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: #DAC0A3;
+    color: #1C1613;
+  }
+}
+
+@layer utilities {
+  /* Warm Luxury Image Grading Guard to harmonize client mobile phone photos */
+  .warm-luxury-image {
+    filter: sepia(0.06) brightness(1.01) contrast(1.02);
+    transition: filter 0.4s ease, transform 0.5s ease;
+  }
+
+  .warm-luxury-image:hover {
+    filter: sepia(0.03) brightness(1.03) contrast(1.03);
+  }
+
+  /* Thin elegant luxury divider line */
+  .gold-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #C5A880, transparent);
+  }
+
+  /* Subtitle tracking & styling */
+  .luxury-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #A68456;
+    font-weight: 600;
+  }
+}

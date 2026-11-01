@@ -1,0 +1,193 @@
+'use client';
+
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X, Instagram, MapPin, Clock, Sparkles, ExternalLink, Copy, Check } from 'lucide-react';
+import { siteConfig } from '@/lib/config';
+import { Button } from '@/components/ui/button';
+
+function TikTokIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298-.002.595.042.88.13V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.82 4.47 6.27 6.27 0 0 0 1.87-4.47V8.71a8.21 8.21 0 0 0 4.9 1.62v-3.64Z" />
+    </svg>
+  );
+}
+
+interface BookingModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  selectedService?: string | null;
+}
+
+export function BookingModal({
+  isOpen,
+  onClose,
+  selectedService,
+}: BookingModalProps) {
+  const [copied, setCopied] = useState(false);
+  const bookingMessage = siteConfig.getBookingMessage(selectedService || undefined);
+
+  const handleCopyMessage = () => {
+    navigator.clipboard.writeText(bookingMessage);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
+  };
+
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          {/* Backdrop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={onClose}
+            className="fixed inset-0 bg-espresso-950/70 backdrop-blur-sm"
+          />
+
+          {/* Modal Container */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
+            className="relative w-full max-w-lg overflow-hidden rounded-3xl bg-cream border border-nude-200/80 p-6 sm:p-8 shadow-2xl z-10 max-h-[90vh] overflow-y-auto"
+          >
+            {/* Close Button */}
+            <button
+              onClick={onClose}
+              className="absolute top-5 right-5 p-2 rounded-full text-espresso-700/60 hover:text-espresso-900 hover:bg-nude-100/60 transition-colors"
+              aria-label="Закрыть"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            {/* Modal Header */}
+            <div className="text-center mb-6">
+              <span className="luxury-eyebrow mb-2 block">Онлайн-запись • Ашдод</span>
+              <h3 className="font-serif text-2xl sm:text-3xl text-espresso-900 font-medium">
+                Запись к мастеру
+              </h3>
+              <div className="w-12 h-[1px] bg-gold mx-auto my-3" />
+              {selectedService ? (
+                <div className="mt-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-nude-100 text-espresso-800 text-xs font-medium">
+                  <Sparkles className="w-3.5 h-3.5 text-gold" />
+                  Выбрано: <span className="font-semibold">{selectedService}</span>
+                </div>
+              ) : (
+                <p className="text-xs sm:text-sm text-espresso-700/75">
+                  Запись ведется напрямую в Instagram Direct. Напишите мастеру в удобное время.
+                </p>
+              )}
+            </div>
+
+            {/* Direct Booking Actions */}
+            <div className="space-y-3 mb-6">
+              {/* Primary Instagram Direct */}
+              <a
+                href={siteConfig.instagram1}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <Button variant="instagram" fullWidth size="lg" className="gap-2.5 text-sm">
+                  <Instagram className="w-4 h-4" />
+                  Написать в Instagram Direct ({siteConfig.instagram1Handle})
+                </Button>
+              </a>
+
+              {/* Ready-to-send Message Copy Helper */}
+              <div className="p-3.5 rounded-2xl bg-champagne-100/90 border border-nude-200/70 text-left">
+                <div className="flex items-center justify-between mb-1.5">
+                  <span className="text-[10px] uppercase tracking-wider text-espresso-600 font-semibold">
+                    Готовое сообщение для отправки:
+                  </span>
+                  <button
+                    onClick={handleCopyMessage}
+                    className="inline-flex items-center gap-1 text-[11px] text-gold-dark hover:underline font-medium"
+                  >
+                    {copied ? (
+                      <>
+                        <Check className="w-3 h-3 text-emerald-600" />
+                        Скопировано!
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-3 h-3" />
+                        Скопировать текст
+                      </>
+                    )}
+                  </button>
+                </div>
+                <p className="text-xs text-espresso-800 font-light italic bg-white/70 p-2.5 rounded-xl border border-nude-200/40">
+                  "{bookingMessage}"
+                </p>
+              </div>
+
+              {/* Secondary Instagram & TikTok Grid */}
+              <div className="grid grid-cols-2 gap-2 pt-1">
+                <a
+                  href={siteConfig.instagram2}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                >
+                  <Button variant="outline" fullWidth size="sm" className="gap-1.5 text-xs py-2.5">
+                    <Instagram className="w-3.5 h-3.5 text-[#C13584]" />
+                    {siteConfig.instagram2Handle}
+                  </Button>
+                </a>
+
+                <a
+                  href={siteConfig.tiktok}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                >
+                  <Button variant="outline" fullWidth size="sm" className="gap-1.5 text-xs py-2.5">
+                    <TikTokIcon className="w-3.5 h-3.5" />
+                    {siteConfig.tiktokHandle}
+                  </Button>
+                </a>
+              </div>
+            </div>
+
+            {/* Studio Info & Navigation in Ashdod */}
+            <div className="rounded-2xl bg-champagne-100/80 p-4 border border-nude-200/50 space-y-3">
+              <div className="flex items-start gap-2 text-xs text-espresso-700/90">
+                <MapPin className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" />
+                <div>
+                  <strong>Локация:</strong> {siteConfig.address}
+                </div>
+              </div>
+
+              <div className="flex items-center justify-center gap-2 pt-1 border-t border-nude-200/50">
+                <a
+                  href={siteConfig.googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[11px] text-gold-dark hover:underline flex items-center gap-1 font-medium"
+                >
+                  <ExternalLink className="w-3 h-3" />
+                  Открыть Google Maps
+                </a>
+                <span className="text-nude-300">•</span>
+                <a
+                  href={siteConfig.appleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[11px] text-gold-dark hover:underline flex items-center gap-1 font-medium"
+                >
+                  <ExternalLink className="w-3 h-3" />
+                  Открыть Apple Maps
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      )}
+    </AnimatePresence>
+  );
+}
