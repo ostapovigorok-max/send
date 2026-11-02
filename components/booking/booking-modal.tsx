@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, MapPin, Phone, Sparkles, ExternalLink, Copy, Check } from 'lucide-react';
+import { X, MapPin, Phone, Sparkles, ExternalLink, Copy, Check, Calendar } from 'lucide-react';
 import { WhatsAppIcon, TelegramIcon, InstagramIcon, TikTokIcon } from '@/components/ui/social-icons';
 import { siteConfig } from '@/lib/config';
 import { Button } from '@/components/ui/button';
@@ -90,6 +90,19 @@ export function BookingModal({
                 <Button variant="whatsapp" fullWidth size="lg" className="gap-2.5 text-sm">
                   <WhatsAppIcon className="w-5 h-5" variant="inverted" />
                   Записаться в WhatsApp ({siteConfig.phone})
+                </Button>
+              </a>
+
+              {/* Online Calendar Booking */}
+              <a
+                href={siteConfig.onlineBookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <Button variant="gold" fullWidth size="lg" className="gap-2.5 text-sm">
+                  <Calendar className="w-5 h-5" />
+                  Онлайн-запись (Calmark / Tor4You)
                 </Button>
               </a>
 

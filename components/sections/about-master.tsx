@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Award, ShieldCheck, Sparkles, Check, HeartHandshake } from 'lucide-react';
+import { Award, ShieldCheck, Sparkles, Check, HeartHandshake, Camera } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { Card } from '@/components/ui/card';
 import { siteConfig } from '@/lib/config';
@@ -115,6 +115,110 @@ export function AboutMaster() {
               </ul>
             </div>
           </motion.div>
+        </div>
+
+        {/* Block 1: Гарантия стерильности — стандарт медицинской безопасности */}
+        <div className="mt-20 pt-16 border-t border-nude-200/80">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <span className="luxury-eyebrow mb-2 block">Медицинский протокол • 100% стерильность</span>
+            <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-espresso-950 font-normal">
+              Гарантия стерильности: стандарт медицинской безопасности
+            </h3>
+            <div className="w-16 h-[1px] bg-gold mx-auto my-4" />
+            <p className="text-sm sm:text-base text-espresso-700/90 leading-relaxed font-light">
+              Пинцеты проходят 3 этапа: дезинфекция в растворе, ультразвуковая очистка и термостерилизация в медицинском сухожаре при 180°C. Крафт-пакет с индикатором стерильности вскрывается исключительно в вашем присутствии.
+            </p>
+          </div>
+
+          {/* 3 Photo Placeholders with captions */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
+            {/* Photo 1: Сухожар */}
+            <Card variant="champagne" className="overflow-hidden p-0 border-nude-200/90 group flex flex-col justify-between">
+              <div>
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-nude-200">
+                  <Image
+                    src="/images/placeholders/sterilization-dry-heat.svg"
+                    alt="Сухожар для стерилизации инструментов Polilash Ashdod"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-espresso-950/80 text-champagne-100 text-[10px] font-semibold uppercase tracking-wider backdrop-blur-sm">
+                    Этап 3: Сухожар 180°C
+                  </div>
+                </div>
+                <div className="p-5">
+                  <h4 className="font-serif text-base sm:text-lg text-espresso-900 font-medium mb-1.5">
+                    Медицинский сухожар
+                  </h4>
+                  <p className="text-xs text-espresso-700/80 leading-relaxed font-light">
+                    Сертифицированная термическая обработка при 180°C — гарантия 100% уничтожения любых микроорганизмов.
+                  </p>
+                </div>
+              </div>
+              <div className="px-5 pb-4 pt-2 border-t border-nude-200/60 text-[11px] text-espresso-500 font-light flex items-center gap-1.5">
+                <Camera className="w-3.5 h-3.5 text-gold" />
+                <span>Фото сухожара в студии</span>
+              </div>
+            </Card>
+
+            {/* Photo 2: Процесс загрузки */}
+            <Card variant="champagne" className="overflow-hidden p-0 border-nude-200/90 group flex flex-col justify-between">
+              <div>
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-nude-200">
+                  <Image
+                    src="/images/placeholders/sterilization-loading.svg"
+                    alt="Процесс загрузки и очистки инструментов перед сухожаром"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-espresso-950/80 text-champagne-100 text-[10px] font-semibold uppercase tracking-wider backdrop-blur-sm">
+                    Этапы 1–2: Дезинфекция + УЗ
+                  </div>
+                </div>
+                <div className="p-5">
+                  <h4 className="font-serif text-base sm:text-lg text-espresso-900 font-medium mb-1.5">
+                    Процесс загрузки и очистки
+                  </h4>
+                  <p className="text-xs text-espresso-700/80 leading-relaxed font-light">
+                    Предстерилизационная обработка в дезрастворе и ультразвуковая чистка микрочастиц перед термокамерой.
+                  </p>
+                </div>
+              </div>
+              <div className="px-5 pb-4 pt-2 border-t border-nude-200/60 text-[11px] text-espresso-500 font-light flex items-center gap-1.5">
+                <Camera className="w-3.5 h-3.5 text-gold" />
+                <span>Фото процесса подготовки</span>
+              </div>
+            </Card>
+
+            {/* Photo 3: Крафт-пакет с индикатором */}
+            <Card variant="champagne" className="overflow-hidden p-0 border-nude-200/90 group flex flex-col justify-between">
+              <div>
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-nude-200">
+                  <Image
+                    src="/images/placeholders/sterilization-kraft-bag.svg"
+                    alt="Крафт-пакет с индикатором стерильности инструментов"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-emerald-800 text-white text-[10px] font-semibold uppercase tracking-wider backdrop-blur-sm">
+                    Вскрытие при вас
+                  </div>
+                </div>
+                <div className="p-5">
+                  <h4 className="font-serif text-base sm:text-lg text-espresso-900 font-medium mb-1.5">
+                    Крафт-пакет с индикатором
+                  </h4>
+                  <p className="text-xs text-espresso-700/80 leading-relaxed font-light">
+                    Химический индикатор изменяет цвет при успешной стерилизации. Пакет распечатывается только перед вами.
+                  </p>
+                </div>
+              </div>
+              <div className="px-5 pb-4 pt-2 border-t border-nude-200/60 text-[11px] text-espresso-500 font-light flex items-center gap-1.5">
+                <Camera className="w-3.5 h-3.5 text-gold" />
+                <span>Фото крафт-пакета с индикатором</span>
+              </div>
+            </Card>
+          </div>
         </div>
       </Container>
     </section>

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ShieldAlert, Sparkles, CheckCircle2, Clock, AlertTriangle } from 'lucide-react';
+import { ShieldAlert, Sparkles, CheckCircle2, Clock, AlertTriangle, Droplets, ShieldCheck, Waves } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { Card } from '@/components/ui/card';
 import { AccordionItem } from '@/components/ui/accordion';
@@ -107,6 +107,76 @@ export function TreatmentDetails() {
               </div>
             </AccordionItem>
           ))}
+        </div>
+
+        {/* Block 2: Почему ресницы Polilash держатся 3–5 недель в Ашдоде */}
+        <div className="max-w-4xl mx-auto mt-20 pt-16 border-t border-nude-200/80">
+          <div className="text-center mb-12">
+            <span className="luxury-eyebrow mb-2 block">Стойкая носка • Климат Средиземноморья</span>
+            <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-espresso-950 font-normal">
+              Почему ресницы Polilash держатся 3–5 недель в Ашдоде
+            </h3>
+            <div className="w-16 h-[1px] bg-gold mx-auto my-4" />
+            <p className="text-xs sm:text-sm text-espresso-700/80 font-light max-w-xl mx-auto">
+              Особенности авторской техники и сертифицированных материалов, адаптированных под солнце, влажность и морской воздух Израиля.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Point 1: Влагостойкие клеи */}
+            <Card variant="champagne" className="p-6 rounded-2xl border-nude-200/90 flex flex-col justify-between hover:shadow-luxury-hover transition-all">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-gold/20 flex items-center justify-center text-gold-dark mb-4">
+                  <Droplets className="w-6 h-6 text-gold-dark" />
+                </div>
+                <h4 className="font-serif text-lg text-espresso-950 font-medium mb-2">
+                  Влагостойкие клеи нового поколения
+                </h4>
+                <p className="text-xs sm:text-sm text-espresso-700/85 leading-relaxed font-light">
+                  Клеи нового поколения, устойчивые к влажности Средиземноморского побережья (до 85%) и поту. Молекулярная сцепка сохраняет гибкость и не крошится от жары.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-nude-200/60 text-[11px] font-semibold uppercase tracking-wider text-gold-dark">
+                Стойкость до 85% влажности
+              </div>
+            </Card>
+
+            {/* Point 2: Анатомический отступ 0.5 мм */}
+            <Card variant="champagne" className="p-6 rounded-2xl border-nude-200/90 flex flex-col justify-between hover:shadow-luxury-hover transition-all">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-gold/20 flex items-center justify-center text-gold-dark mb-4">
+                  <ShieldCheck className="w-6 h-6 text-gold-dark" />
+                </div>
+                <h4 className="font-serif text-lg text-espresso-950 font-medium mb-2">
+                  Анатомический отступ 0.5 мм
+                </h4>
+                <p className="text-xs sm:text-sm text-espresso-700/85 leading-relaxed font-light">
+                  Анатомический отступ 0.5 мм исключает натяжение кожи и механическое отслоение. Никаких склеек и покалывания век при моргании.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-nude-200/60 text-[11px] font-semibold uppercase tracking-wider text-gold-dark">
+                Без контакта клея с кожей
+              </div>
+            </Card>
+
+            {/* Point 3: Море через 24 часа */}
+            <Card variant="champagne" className="p-6 rounded-2xl border-nude-200/90 flex flex-col justify-between hover:shadow-luxury-hover transition-all">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-gold/20 flex items-center justify-center text-gold-dark mb-4">
+                  <Waves className="w-6 h-6 text-gold-dark" />
+                </div>
+                <h4 className="font-serif text-lg text-espresso-950 font-medium mb-2">
+                  Купание в море через 24 часа
+                </h4>
+                <p className="text-xs sm:text-sm text-espresso-700/85 leading-relaxed font-light">
+                  После визита можно купаться в море уже через 24 часа. После завершения полимеризации клей полностью инертен к морской воде и активному пляжному отдыху.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-nude-200/60 text-[11px] font-semibold uppercase tracking-wider text-gold-dark">
+                Свободный пляжный отдых
+              </div>
+            </Card>
+          </div>
         </div>
       </Container>
     </section>

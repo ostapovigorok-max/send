@@ -125,6 +125,9 @@ export const siteConfig = {
     lng: 34.651508,
   },
 
+  // Online Calendar Booking (Calmark / Tor4You placeholder)
+  onlineBookingUrl: process.env.NEXT_PUBLIC_CALENDAR_URL || 'https://calmark.io/polilash-ashdod',
+
   workingHours: {
     days: 'Воскресенье – Пятница',
     hours: '10:00 – 20:00',

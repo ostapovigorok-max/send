@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { MapPin, Clock, Phone, Navigation, ExternalLink } from 'lucide-react';
+import { MapPin, Clock, Phone, Navigation, ExternalLink, Calendar } from 'lucide-react';
 import { WhatsAppIcon, TelegramIcon, InstagramIcon, TikTokIcon } from '@/components/ui/social-icons';
 import { Container } from '@/components/ui/container';
 import { Card } from '@/components/ui/card';
@@ -47,6 +47,19 @@ export function ContactSection({ onOpenBooking }: ContactSectionProps) {
                 <Button variant="whatsapp" fullWidth size="lg" className="gap-2.5 text-sm sm:text-base">
                   <WhatsAppIcon className="w-5 h-5" variant="inverted" />
                   Записаться в WhatsApp ({siteConfig.phone})
+                </Button>
+              </a>
+
+              {/* Online Calendar Booking (Calmark / Tor4You) */}
+              <a
+                href={siteConfig.onlineBookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <Button variant="gold" fullWidth size="lg" className="gap-2.5 text-sm sm:text-base">
+                  <Calendar className="w-5 h-5" />
+                  Онлайн-запись в календаре
                 </Button>
               </a>
 

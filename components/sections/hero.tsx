@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Sparkles, ArrowRight, ShieldCheck, MapPin } from 'lucide-react';
+import { Sparkles, ArrowRight, ShieldCheck, MapPin, Calendar } from 'lucide-react';
 import { WhatsAppIcon, TelegramIcon } from '@/components/ui/social-icons';
 import { Container } from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
@@ -70,6 +70,24 @@ export function Hero({ onOpenBooking }: HeroProps) {
                 >
                   <WhatsAppIcon className="w-5 h-5" variant="inverted" />
                   Записаться в WhatsApp
+                </Button>
+              </a>
+
+              {/* Online Calendar Booking (Calmark / Tor4You) */}
+              <a
+                href={siteConfig.onlineBookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto"
+              >
+                <Button
+                  variant="gold"
+                  size="lg"
+                  fullWidth
+                  className="shadow-md hover:shadow-lg gap-2 text-sm"
+                >
+                  <Calendar className="w-5 h-5" />
+                  Онлайн-запись
                 </Button>
               </a>
 

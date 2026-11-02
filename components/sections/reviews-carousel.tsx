@@ -3,9 +3,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star, ChevronLeft, ChevronRight, Quote, Heart } from 'lucide-react';
+import { InstagramIcon } from '@/components/ui/social-icons';
 import { Container } from '@/components/ui/container';
 import { Card } from '@/components/ui/card';
-import { reviewsData } from '@/lib/config';
+import { reviewsData, siteConfig } from '@/lib/config';
 
 export function ReviewsCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -105,6 +106,20 @@ export function ReviewsCarousel() {
             >
               <ChevronRight className="w-5 h-5" />
             </button>
+          </div>
+
+          {/* Instagram Video Reviews & Highlights CTA */}
+          <div className="mt-10 text-center">
+            <a
+              href={siteConfig.instagram1}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-cream border border-gold/40 text-espresso-950 hover:bg-espresso-900 hover:text-champagne-100 hover:border-transparent transition-all shadow-sm text-xs sm:text-sm font-medium group"
+            >
+              <InstagramIcon className="w-4 h-4 text-pink-600 group-hover:scale-110 transition-transform" />
+              <span>Смотреть видео-отзывы и макро-съёмку в Instagram Highlights</span>
+              <span className="text-gold">→</span>
+            </a>
           </div>
         </div>
       </Container>
