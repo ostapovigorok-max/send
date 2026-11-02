@@ -3,7 +3,8 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { MessageCircle, Send, Sparkles, ArrowRight, ShieldCheck, MapPin } from 'lucide-react';
+import { Sparkles, ArrowRight, ShieldCheck, MapPin } from 'lucide-react';
+import { WhatsAppIcon, TelegramIcon } from '@/components/ui/social-icons';
 import { Container } from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
 import { siteConfig } from '@/lib/config';
@@ -59,7 +60,7 @@ export function Hero({ onOpenBooking }: HeroProps) {
                   fullWidth
                   className="shadow-md hover:shadow-lg gap-2 text-sm"
                 >
-                  <MessageCircle className="w-4 h-4 fill-white" />
+                  <WhatsAppIcon className="w-5 h-5" variant="inverted" />
                   Записаться в WhatsApp
                 </Button>
               </a>
@@ -77,7 +78,7 @@ export function Hero({ onOpenBooking }: HeroProps) {
                   fullWidth
                   className="shadow-sm hover:shadow-md gap-2 text-sm"
                 >
-                  <Send className="w-4 h-4 fill-white" />
+                  <TelegramIcon className="w-5 h-5" variant="inverted" />
                   Написать в Telegram
                 </Button>
               </a>

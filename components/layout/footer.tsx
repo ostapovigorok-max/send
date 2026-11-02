@@ -1,17 +1,10 @@
 'use client';
 
 import React from 'react';
-import { MessageCircle, Send, Instagram, MapPin, Clock, Phone, ExternalLink } from 'lucide-react';
+import { MapPin, Clock, Phone, ExternalLink } from 'lucide-react';
+import { WhatsAppIcon, TelegramIcon, InstagramIcon, TikTokIcon } from '@/components/ui/social-icons';
 import { Container } from '@/components/ui/container';
 import { siteConfig } from '@/lib/config';
-
-function TikTokIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298-.002.595.042.88.13V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.82 4.47 6.27 6.27 0 0 0 1.87-4.47V8.71a8.21 8.21 0 0 0 4.9 1.62v-3.64Z" />
-    </svg>
-  );
-}
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -34,47 +27,47 @@ export function Footer() {
                 href={siteConfig.getWhatsAppBookingUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-espresso-800 flex items-center justify-center text-champagne-100 hover:bg-[#25D366] hover:text-white transition-colors"
+                className="w-9 h-9 rounded-full bg-espresso-800 flex items-center justify-center hover:bg-espresso-700 hover:scale-110 active:scale-95 transition-all duration-200"
                 aria-label="WhatsApp"
                 title={`WhatsApp: ${siteConfig.phone}`}
               >
-                <MessageCircle className="w-4 h-4 fill-current" />
+                <WhatsAppIcon className="w-5 h-5" />
               </a>
               <a
                 href={siteConfig.getTelegramBookingUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-espresso-800 flex items-center justify-center text-champagne-100 hover:bg-[#2AABEE] hover:text-white transition-colors"
+                className="w-9 h-9 rounded-full bg-espresso-800 flex items-center justify-center hover:bg-espresso-700 hover:scale-110 active:scale-95 transition-all duration-200"
                 aria-label="Telegram"
                 title={`Telegram: ${siteConfig.telegramHandle}`}
               >
-                <Send className="w-4 h-4" />
+                <TelegramIcon className="w-5 h-5" />
               </a>
               <a
                 href={siteConfig.instagram1}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-espresso-800 flex items-center justify-center text-champagne-100 hover:bg-[#E1306C] hover:text-white transition-colors"
+                className="w-9 h-9 rounded-full bg-espresso-800 flex items-center justify-center hover:bg-espresso-700 hover:scale-110 active:scale-95 transition-all duration-200"
                 aria-label="Instagram Brow & Lash"
                 title={`Instagram: ${siteConfig.instagram1Handle}`}
               >
-                <Instagram className="w-4 h-4" />
+                <InstagramIcon className="w-5 h-5" />
               </a>
               <a
                 href={siteConfig.instagram2}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-espresso-800 flex items-center justify-center text-champagne-100 hover:bg-[#C13584] hover:text-white transition-colors"
+                className="w-9 h-9 rounded-full bg-espresso-800 flex items-center justify-center hover:bg-espresso-700 hover:scale-110 active:scale-95 transition-all duration-200"
                 aria-label="Instagram Vugoraniya"
                 title={`Instagram: ${siteConfig.instagram2Handle}`}
               >
-                <Instagram className="w-4 h-4" />
+                <InstagramIcon className="w-5 h-5" />
               </a>
               <a
                 href={siteConfig.tiktok}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-espresso-800 flex items-center justify-center text-champagne-100 hover:bg-[#00F2FE] hover:text-black transition-colors"
+                className="w-9 h-9 rounded-full bg-espresso-800 flex items-center justify-center text-champagne-100 hover:text-white hover:bg-espresso-700 hover:scale-110 active:scale-95 transition-all duration-200"
                 aria-label="TikTok"
                 title={`TikTok: ${siteConfig.tiktokHandle}`}
               >

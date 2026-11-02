@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { MessageCircle } from 'lucide-react';
+import { WhatsAppIcon } from '@/components/ui/social-icons';
 import { Button } from '@/components/ui/button';
 import { siteConfig } from '@/lib/config';
 
@@ -29,7 +29,7 @@ export function StickyBookingBar({ onOpenBooking }: StickyBookingBarProps) {
             onClick={onOpenBooking}
             className="shadow-sm font-semibold text-xs px-5 py-2.5 gap-1.5"
           >
-            <MessageCircle className="w-3.5 h-3.5 fill-white" />
+            <WhatsAppIcon className="w-3.5 h-3.5" variant="inverted" />
             Записаться
           </Button>
         </div>

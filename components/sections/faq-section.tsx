@@ -1,7 +1,8 @@
 'use client';
 
 import React from 'react';
-import { HelpCircle, Instagram } from 'lucide-react';
+import { HelpCircle } from 'lucide-react';
+import { InstagramIcon } from '@/components/ui/social-icons';
 import { Container } from '@/components/ui/container';
 import { AccordionItem } from '@/components/ui/accordion';
 import { faqData, siteConfig } from '@/lib/config';
@@ -48,7 +49,7 @@ export function FaqSection() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-gold-dark font-semibold hover:underline"
           >
-            <Instagram className="w-4 h-4 text-[#E1306C]" />
+            <InstagramIcon className="w-4 h-4" />
             Задать вопрос в Instagram Direct ({siteConfig.instagram1Handle}) →
           </a>
         </div>

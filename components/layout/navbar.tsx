@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X, MessageCircle, Send, Instagram, Sparkles, MapPin } from 'lucide-react';
+import { Menu, X, Sparkles, MapPin } from 'lucide-react';
+import { WhatsAppIcon, TelegramIcon, InstagramIcon } from '@/components/ui/social-icons';
 import { Container } from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
 import { siteConfig } from '@/lib/config';
@@ -77,34 +78,34 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
               href={siteConfig.getWhatsAppBookingUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-full text-espresso-700 hover:text-[#25D366] hover:bg-champagne-200/50 transition-colors"
+              className="p-1.5 rounded-full hover:bg-champagne-200/50 hover:scale-110 active:scale-95 transition-all duration-200 flex items-center justify-center"
               aria-label="WhatsApp"
               title={`WhatsApp: ${siteConfig.phone}`}
             >
-              <MessageCircle className="w-4 h-4" />
+              <WhatsAppIcon className="w-5 h-5" />
             </a>
             <a
               href={siteConfig.getTelegramBookingUrl()}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-full text-espresso-700 hover:text-[#2AABEE] hover:bg-champagne-200/50 transition-colors"
+              className="p-1.5 rounded-full hover:bg-champagne-200/50 hover:scale-110 active:scale-95 transition-all duration-200 flex items-center justify-center"
               aria-label="Telegram"
               title={`Telegram: ${siteConfig.telegramHandle}`}
             >
-              <Send className="w-4 h-4" />
+              <TelegramIcon className="w-5 h-5" />
             </a>
             <a
               href={siteConfig.instagram1}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-full text-espresso-700 hover:text-[#E1306C] hover:bg-champagne-200/50 transition-colors"
+              className="p-1.5 rounded-full hover:bg-champagne-200/50 hover:scale-110 active:scale-95 transition-all duration-200 flex items-center justify-center"
               aria-label="Instagram"
               title={`Instagram: ${siteConfig.instagram1Handle}`}
             >
-              <Instagram className="w-4 h-4" />
+              <InstagramIcon className="w-5 h-5" />
             </a>
             <Button variant="whatsapp" size="sm" onClick={onOpenBooking} className="gap-1.5">
-              <MessageCircle className="w-3.5 h-3.5 fill-white" />
+              <WhatsAppIcon className="w-3.5 h-3.5" variant="inverted" />
               Записаться
             </Button>
           </div>
@@ -149,7 +150,7 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
                 size="md"
                 className="gap-2 text-xs"
               >
-                <MessageCircle className="w-4 h-4 fill-white" />
+                <WhatsAppIcon className="w-4 h-4" variant="inverted" />
                 Записаться в WhatsApp ({siteConfig.phone})
               </Button>
             </a>
@@ -166,7 +167,7 @@ export function Navbar({ onOpenBooking }: NavbarProps) {
                 size="md"
                 className="gap-2 text-xs"
               >
-                <Send className="w-4 h-4 fill-white" />
+                <TelegramIcon className="w-4 h-4" variant="inverted" />
                 Написать в Telegram ({siteConfig.telegramHandle})
               </Button>
             </a>

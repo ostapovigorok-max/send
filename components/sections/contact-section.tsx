@@ -1,19 +1,12 @@
 'use client';
 
 import React from 'react';
-import { MessageCircle, Send, Instagram, MapPin, Clock, Phone, Navigation, ExternalLink } from 'lucide-react';
+import { MapPin, Clock, Phone, Navigation, ExternalLink } from 'lucide-react';
+import { WhatsAppIcon, TelegramIcon, InstagramIcon, TikTokIcon } from '@/components/ui/social-icons';
 import { Container } from '@/components/ui/container';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { siteConfig } from '@/lib/config';
-
-function TikTokIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298-.002.595.042.88.13V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.82 4.47 6.27 6.27 0 0 0 1.87-4.47V8.71a8.21 8.21 0 0 0 4.9 1.62v-3.64Z" />
-    </svg>
-  );
-}
 
 interface ContactSectionProps {
   onOpenBooking: () => void;
@@ -52,7 +45,7 @@ export function ContactSection({ onOpenBooking }: ContactSectionProps) {
                 className="block"
               >
                 <Button variant="whatsapp" fullWidth size="lg" className="gap-2.5 text-sm sm:text-base">
-                  <MessageCircle className="w-5 h-5 fill-white" />
+                  <WhatsAppIcon className="w-5 h-5" variant="inverted" />
                   Записаться в WhatsApp ({siteConfig.phone})
                 </Button>
               </a>
@@ -65,7 +58,7 @@ export function ContactSection({ onOpenBooking }: ContactSectionProps) {
                 className="block"
               >
                 <Button variant="telegram" fullWidth size="lg" className="gap-2.5 text-sm sm:text-base">
-                  <Send className="w-5 h-5 fill-white" />
+                  <TelegramIcon className="w-5 h-5" variant="inverted" />
                   Написать в Telegram ({siteConfig.telegramHandle})
                 </Button>
               </a>
@@ -84,7 +77,7 @@ export function ContactSection({ onOpenBooking }: ContactSectionProps) {
                     size="sm"
                     className="gap-1.5 text-xs border-espresso-800/20 hover:border-transparent py-2.5"
                   >
-                    <Instagram className="w-4 h-4 text-[#E1306C]" />
+                    <InstagramIcon className="w-4 h-4" />
                     {siteConfig.instagram1Handle}
                   </Button>
                 </a>
@@ -101,7 +94,7 @@ export function ContactSection({ onOpenBooking }: ContactSectionProps) {
                     size="sm"
                     className="gap-1.5 text-xs border-espresso-800/20 hover:border-transparent py-2.5"
                   >
-                    <Instagram className="w-4 h-4 text-[#C13584]" />
+                    <InstagramIcon className="w-4 h-4" />
                     {siteConfig.instagram2Handle}
                   </Button>
                 </a>
