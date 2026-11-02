@@ -13,13 +13,13 @@ export function TreatmentDetails() {
       <Container size="xl">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="luxury-eyebrow mb-3 block">Безпека та догляд</span>
+          <span className="luxury-eyebrow mb-3 block">Безопасность и уход</span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-espresso-950 font-normal">
-            Деталі процедур та догляд
+            Детали процедур и уход
           </h2>
           <div className="w-16 h-[1px] bg-gold mx-auto my-4" />
           <p className="text-sm sm:text-base text-espresso-700/80 font-light">
-            Повні рекомендації щодо правильного домашнього догляду, тривалості носіння та протипоказань.
+            Полные рекомендации по правильному домашнему уходу, длительности носки и противопоказаниям.
           </p>
         </div>
 
@@ -35,10 +35,10 @@ export function TreatmentDetails() {
               </div>
               <div className="space-y-2">
                 <h3 className="font-serif text-lg sm:text-xl text-espresso-900 font-medium">
-                  Золоте правило перших 24 годин
+                  Золотое правило первых 24 часов
                 </h3>
                 <p className="text-xs sm:text-sm text-espresso-700/85 leading-relaxed font-light">
-                  Клею та кератиновим складам потрібна повна доба для повної полімеризації. Суворо уникайте гарячого душу, лазні, сауни, басейну та активних тренувань протягом перших 24 годин після процедури.
+                  Клею и кератиновым составам нужны полные сутки для полной полимеризации. Строго избегайте горячего душа, бани, сауны, бассейна и активных тренировок в течение первых 24 часов после процедуры.
                 </p>
               </div>
             </div>
@@ -51,7 +51,7 @@ export function TreatmentDetails() {
             <AccordionItem
               key={service.id}
               title={service.name}
-              badge={service.badge || `${service.duration} хв`}
+              badge={service.badge || `${service.duration} мин`}
               defaultOpen={index === 0}
             >
               <div className="space-y-6 pt-2">
@@ -59,7 +59,7 @@ export function TreatmentDetails() {
                 <div>
                   <h4 className="text-xs font-semibold uppercase tracking-wider text-gold-dark mb-1.5 flex items-center gap-1.5">
                     <Sparkles className="w-3.5 h-3.5 text-gold" />
-                    Опис процедури
+                    Описание процедуры
                   </h4>
                   <p className="text-xs sm:text-sm text-espresso-700/90 leading-relaxed font-light">
                     {service.details.procedure}
@@ -70,7 +70,7 @@ export function TreatmentDetails() {
                 <div className="p-3.5 rounded-xl bg-champagne-100/70 border border-nude-200/50 flex items-start gap-2.5">
                   <Clock className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" />
                   <div className="text-xs text-espresso-800">
-                    <strong>Очікувана тривалість носіння:</strong> {service.details.longevity}
+                    <strong>Ожидаемая длительность носки:</strong> {service.details.longevity}
                   </div>
                 </div>
 
@@ -78,7 +78,7 @@ export function TreatmentDetails() {
                 <div>
                   <h4 className="text-xs font-semibold uppercase tracking-wider text-espresso-900 mb-2 flex items-center gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                    Домашній догляд
+                    Домашний уход
                   </h4>
                   <ul className="space-y-1.5">
                     {service.details.aftercare.map((item, i) => (
@@ -94,7 +94,7 @@ export function TreatmentDetails() {
                 <div className="p-4 rounded-xl bg-nude-100/60 border border-nude-300/40">
                   <h4 className="text-xs font-semibold uppercase tracking-wider text-espresso-900 mb-2 flex items-center gap-1.5">
                     <ShieldAlert className="w-3.5 h-3.5 text-amber-600" />
-                    Протипоказання та застереження
+                    Противопоказания и предостережения
                   </h4>
                   <ul className="space-y-1">
                     {service.details.contraindications.map((contra, i) => (

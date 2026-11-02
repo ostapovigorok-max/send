@@ -45,10 +45,10 @@ export function AboutMaster() {
                     </div>
                     <div>
                       <p className="font-serif text-sm font-semibold text-espresso-900">
-                        {aboutMaster.experienceYears} Dedicated Artistry
+                        {aboutMaster.experienceYears} • Dedicated Artistry
                       </p>
                       <p className="text-[10px] uppercase tracking-wider text-espresso-600 font-medium">
-                        Advanced Lash & Brow Specialist
+                        Сертифицированный мастер • Lash & Brow Specialist
                       </p>
                     </div>
                   </div>
@@ -66,7 +66,7 @@ export function AboutMaster() {
             className="lg:col-span-7 space-y-8"
           >
             <div>
-              <span className="luxury-eyebrow mb-2 block">The Master's Philosophy</span>
+              <span className="luxury-eyebrow mb-2 block">О мастере • The Master's Philosophy</span>
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-espresso-950 font-normal leading-tight">
                 {aboutMaster.title} — {siteConfig.masterName}
               </h2>
@@ -80,7 +80,8 @@ export function AboutMaster() {
             <div className="space-y-4">
               <h3 className="text-xs font-semibold uppercase tracking-widest text-espresso-900 flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-gold" />
-                Sanitary & Health Standards
+                Стандарты безопасности и стерильности
+                <span className="text-[10px] text-espresso-500 font-normal tracking-normal lowercase">/ sanitary standards</span>
               </h3>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -101,7 +102,8 @@ export function AboutMaster() {
             <div className="pt-2">
               <h3 className="text-xs font-semibold uppercase tracking-widest text-espresso-900 mb-3 flex items-center gap-2">
                 <Sparkles className="w-4 h-4 text-gold" />
-                Qualifications & Accreditations
+                Квалификация и сертификаты
+                <span className="text-[10px] text-espresso-500 font-normal tracking-normal lowercase">/ qualifications</span>
               </h3>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-espresso-700/90 font-light">
                 {aboutMaster.certificates.map((cert, i) => (

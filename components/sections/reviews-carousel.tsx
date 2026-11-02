@@ -25,13 +25,13 @@ export function ReviewsCarousel() {
       <Container size="xl">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="luxury-eyebrow mb-3 block">Client Experiences</span>
+          <span className="luxury-eyebrow mb-3 block">Client Experiences • Kind Words</span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-espresso-950 font-normal">
-            Kind Words
+            Отзывы клиентов
           </h2>
           <div className="w-16 h-[1px] bg-gold mx-auto my-4" />
           <p className="text-sm sm:text-base text-espresso-700/80 font-light">
-            Genuine impressions from clients who trust our studio for their everyday elegance.
+            Честные впечатления клиенток, которые выбирают нашу студию в Ашдоде.
           </p>
         </div>
 
@@ -67,7 +67,7 @@ export function ReviewsCarousel() {
                   </p>
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-champagne-100 text-[11px] text-espresso-700 font-medium">
                     <span className="text-gold">✦</span>
-                    <span>Treatment: {current.service}</span>
+                    <span>Процедура: {current.service}</span>
                   </div>
                 </div>
               </Card>

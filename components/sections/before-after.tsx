@@ -17,13 +17,13 @@ export function BeforeAfter() {
       <Container size="xl">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="luxury-eyebrow mb-3 block">Real Results</span>
+          <span className="luxury-eyebrow mb-3 block">Real Results • Before & After</span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-espresso-950 font-normal">
-            Before & After
+            До и после
           </h2>
           <div className="w-16 h-[1px] bg-gold mx-auto my-4" />
           <p className="text-sm sm:text-base text-espresso-700/80 font-light">
-            Slide the divider to compare natural lash and brow contours before and after professional treatment.
+            Перемещайте разделитель, чтобы сравнить естественный контур ресниц и бровей до и после профессиональной процедуры.
           </p>
 
           {/* Item Selector Pills */}
@@ -146,10 +146,10 @@ function ComparisonSlider({ item }: { item: BeforeAfterItem }) {
 
       {/* Badges: Before and After */}
       <div className="absolute top-4 left-4 z-10 px-3 py-1 rounded-full bg-espresso-950/70 backdrop-blur-sm text-champagne-100 text-[10px] uppercase tracking-widest font-semibold pointer-events-none">
-        Before
+        До • Before
       </div>
       <div className="absolute top-4 right-4 z-10 px-3 py-1 rounded-full bg-cream/90 backdrop-blur-sm text-espresso-900 text-[10px] uppercase tracking-widest font-semibold pointer-events-none">
-        After Treatment
+        После • After
       </div>
     </div>
   );

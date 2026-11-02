@@ -11,11 +11,11 @@ import { portfolioItems, PortfolioItem } from '@/lib/config';
 type FilterCategory = 'all' | 'classic' | 'volume' | 'lamination' | 'lash-lift';
 
 const filterTabs: { id: FilterCategory; label: string }[] = [
-  { id: 'all', label: 'All Work' },
-  { id: 'classic', label: 'Classic Lashes' },
-  { id: 'volume', label: 'Volume Lashes' },
-  { id: 'lamination', label: 'Brow Lamination' },
-  { id: 'lash-lift', label: 'Lash Lift' },
+  { id: 'all', label: 'Все работы' },
+  { id: 'classic', label: 'Классика' },
+  { id: 'volume', label: 'Объемы 2D–Mega' },
+  { id: 'lamination', label: 'Укладка бровей' },
+  { id: 'lash-lift', label: 'Ламинирование' },
 ];
 
 export function PortfolioGallery() {
@@ -31,13 +31,13 @@ export function PortfolioGallery() {
       <Container size="xl">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <span className="luxury-eyebrow mb-3 block">Selected Portfolio</span>
+          <span className="luxury-eyebrow mb-3 block">Selected Portfolio • Artistry & Execution</span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-espresso-950 font-normal">
-            Artistry & Execution
+            Портфолио работ
           </h2>
           <div className="w-16 h-[1px] bg-gold mx-auto my-4" />
           <p className="text-sm sm:text-base text-espresso-700/80 font-light">
-            Macro eye close-ups showcasing lash isolation, fan symmetry, and natural brow direction.
+            Макросъемка ресниц и бровей: точная геометрия пучков, безопасная изоляция и анатомическое моделирование.
           </p>
 
           {/* Filter Tabs */}
