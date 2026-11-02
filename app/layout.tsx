@@ -28,7 +28,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://beauty.oskar4you.pp.ua'),
   title: `${siteConfig.studioName} | Наращивание ресниц и брови в Ашдоде (Ashdod, Israel)`,
-  description: `${siteConfig.tagline}. Услуги: Классика, 2D, 3-4D, Mega Volume, ламинирование ресниц и бровей. Цены от 30 ₪ до 400 ₪. Запись через WhatsApp (+972 58 596 4040) и Telegram (@polinaLashAshdod). Ашдод, Израиль.`,
+  description: `${siteConfig.tagline}. Услуги: Классика, 2D, 3-4D, Mega Volume, ламинирование ресниц и бровей. Цены от 30 ₪ до 450 ₪. Запись через WhatsApp (+972 58 596 4040) и Telegram (@polinaLashAshdod). Ашдод, Израиль.`,
   keywords: [
     'наращивание ресниц Ашдод',
     'ресницы Ашдод',
@@ -85,7 +85,7 @@ export default function RootLayout({
     description: siteConfig.tagline,
     url: 'https://beauty.oskar4you.pp.ua',
     telephone: siteConfig.phone,
-    priceRange: '₪30 - ₪400',
+    priceRange: '₪30 - ₪450',
     currenciesAccepted: 'ILS',
     address: {
       '@type': 'PostalAddress',

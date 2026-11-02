@@ -5,6 +5,7 @@ import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
 import { Hero } from '@/components/sections/hero';
 import { ServicesMenu } from '@/components/sections/services-menu';
+import { ComboPackages } from '@/components/sections/combo-packages';
 import { BeforeAfter } from '@/components/sections/before-after';
 import { TreatmentDetails } from '@/components/sections/treatment-details';
 import { PortfolioGallery } from '@/components/sections/portfolio-gallery';
@@ -41,7 +42,10 @@ export default function HomePage() {
         {/* 2. Services & Pricing Table */}
         <ServicesMenu onSelectService={(service) => handleOpenBooking(service)} />
 
-        {/* 3. Before & After Showcase */}
+        {/* 3. Combo Packages */}
+        <ComboPackages onSelectPackage={(pkg) => handleOpenBooking(pkg)} />
+
+        {/* 4. Before & After Showcase */}
         <BeforeAfter />
 
         {/* 4. Treatment Details & Care Protocol */}

@@ -45,6 +45,14 @@ export function Hero({ onOpenBooking }: HeroProps) {
               Индивидуальное моделирование взгляда от полуклассики до Mega Volume, долговременная укладка и ламинирование. Стойкая комфортная носка в климате Израиля.
             </p>
 
+            {/* Special Offer Badge for First Visit */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold/15 border border-gold/30 text-xs text-espresso-950 font-medium shadow-sm">
+              <span className="px-2 py-0.5 rounded-full bg-gold/30 text-espresso-950 font-semibold text-[10px] uppercase tracking-wider">
+                Первый визит
+              </span>
+              <span>Бесплатное снятие чужой работы + щёточка в подарок</span>
+            </div>
+
             {/* Direct Booking Actions (WhatsApp Primary, Telegram Secondary) */}
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
               {/* Primary WhatsApp */}

@@ -6,7 +6,7 @@ import { Clock, Sparkles } from 'lucide-react';
 import { Container } from '@/components/ui/container';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { serviceCategories, siteConfig } from '@/lib/config';
+import { serviceCategories, siteConfig, removalServices } from '@/lib/config';
 
 interface ServicesMenuProps {
   onSelectService: (serviceName: string) => void;
@@ -131,6 +131,100 @@ export function ServicesMenu({ onSelectService }: ServicesMenuProps) {
               </Card>
             </motion.div>
           ))}
+        </div>
+
+        {/* Section 2: Снятие ресниц */}
+        <div className="mt-20 pt-16 border-t border-nude-200/80">
+          <div className="text-center max-w-xl mx-auto mb-12">
+            <span className="luxury-eyebrow mb-2 block">Деликатный уход • Ашдод</span>
+            <h3 className="font-serif text-2xl sm:text-3xl text-espresso-900 font-medium">
+              Снятие ресниц
+            </h3>
+            <div className="w-12 h-[1px] bg-gold mx-auto my-3" />
+            <p className="text-xs sm:text-sm text-espresso-700/80 font-light">
+              Бережное снятие профессиональным кремовым ремувером без жжения и вреда для родных ресниц.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            {removalServices.map((removal, index) => (
+              <motion.div
+                key={removal.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.08 }}
+              >
+                <Card
+                  variant="champagne"
+                  className="h-full flex flex-col justify-between hover:shadow-luxury-hover border-nude-200/90 transition-all duration-300 group"
+                >
+                  <div>
+                    {/* Top Bar: Title, Badge & Price */}
+                    <div className="flex items-start justify-between gap-4 mb-3">
+                      <div>
+                        <h4 className="font-serif text-lg sm:text-xl text-espresso-900 font-medium group-hover:text-gold-dark transition-colors">
+                          {removal.name}
+                        </h4>
+                        {removal.badge && (
+                          <span className="inline-block mt-1 px-2.5 py-0.5 rounded-full bg-nude-200/70 text-espresso-800 text-[10px] uppercase tracking-wider font-semibold">
+                            {removal.badge}
+                          </span>
+                        )}
+                      </div>
+
+                      <div className="text-right flex-shrink-0">
+                        {removal.price === 0 ? (
+                          <span className="font-serif text-2xl sm:text-3xl font-medium text-emerald-800 block leading-tight">
+                            0{' '}
+                            <span className="text-base sm:text-lg font-normal text-emerald-700">
+                              {siteConfig.currency}
+                            </span>
+                          </span>
+                        ) : (
+                          <span className="font-serif text-2xl sm:text-3xl font-medium text-espresso-950 block leading-tight">
+                            {removal.price}{' '}
+                            <span className="text-base sm:text-lg font-normal text-gold-dark">
+                              {siteConfig.currency}
+                            </span>
+                          </span>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Duration if available */}
+                    {removal.duration && (
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-cream border border-nude-200/60 text-espresso-700 text-xs font-medium mb-4">
+                        <Clock className="w-3.5 h-3.5 text-gold" />
+                        <span>Длительность: <strong>{removal.duration}</strong></span>
+                      </div>
+                    )}
+
+                    {/* Description */}
+                    <p className="text-xs sm:text-sm text-espresso-700/80 leading-relaxed mb-6 font-light">
+                      {removal.description}
+                    </p>
+                  </div>
+
+                  {/* Card Action Footer */}
+                  <div className="pt-4 border-t border-nude-200/70 flex items-center justify-between gap-3">
+                    <span className="text-[11px] text-espresso-600 font-light">
+                      {removal.isFree ? '0 ₪ (бесплатно)' : 'Кремовый ремувер'}
+                    </span>
+
+                    <Button
+                      variant="espresso"
+                      size="sm"
+                      onClick={() => onSelectService(removal.name)}
+                      className="text-xs px-4 py-2"
+                    >
+                      Записаться
+                    </Button>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </Container>
     </section>

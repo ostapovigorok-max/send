@@ -28,6 +28,30 @@ export interface ServiceCategory {
   services: ServiceItem[];
 }
 
+export interface RemovalServiceItem {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  duration?: string;
+  badge?: string;
+  isFree?: boolean;
+}
+
+export interface ComboPackageItem {
+  id: string;
+  name: string;
+  badge: string;
+  composition: string[];
+  price: string;
+  regularPrice?: string;
+  savings: string;
+  duration?: string;
+  note?: string;
+  bonus?: string;
+  description: string;
+}
+
 export interface BeforeAfterItem {
   id: string;
   title: string;
@@ -253,8 +277,8 @@ export const services: ServiceItem[] = [
     id: 'lash-mega-volume',
     category: 'lash',
     name: 'Mega Volume',
-    description: 'Максимальная густота и эффект пушистых ресниц.',
-    price: 400,
+    description: 'Ювелирная ручная техника микро-пучков 0.03 мм от 5D до 10D. 100% заполнение, максимальная пушистая густота без утяжеления корней. Стойкость носки 4–6 недель.',
+    price: 450,
     duration: 210, // 3.5 часа
     badge: 'Максимум густоты',
     details: {
@@ -272,11 +296,30 @@ export const services: ServiceItem[] = [
 
   // === БРОВИ И РЕСНИЦЫ ===
   {
+    id: 'lash-lamination',
+    category: 'brow',
+    name: 'Ламинирование ресниц (с окрашиванием и кератином)',
+    description: 'Изгиб, насыщенный черный цвет и кератиновое питание для ваших натуральных ресниц.',
+    price: 220,
+    duration: 75,
+    badge: 'Натуральный уход',
+    details: {
+      procedure: 'Создание красивого анатомического завитка на силиконовых валиках, окрашивание в черный цвет и насыщение кератином.',
+      longevity: '6 – 8 недель.',
+      aftercare: [
+        'Не мочить первые 24 часа. После суток ограничений нет — можно купаться в море и бассейне.',
+      ],
+      contraindications: [
+        'Воспалительные процессы глаз.',
+      ],
+    },
+  },
+  {
     id: 'brow-lamination',
     category: 'brow',
-    name: 'Долговременная укладка бровей',
-    description: 'Ламинирование и укладка волосков с окрашиванием.',
-    price: 180,
+    name: 'Долговременная укладка бровей (коррекция + окрашивание)',
+    description: 'Ламинирование и укладка волосков с архитектурной коррекцией и окрашиванием.',
+    price: 200,
     duration: 60,
     badge: 'Любимая процедура',
     details: {
@@ -293,21 +336,20 @@ export const services: ServiceItem[] = [
     },
   },
   {
-    id: 'lash-lamination',
+    id: 'brow-correction',
     category: 'brow',
-    name: 'Ламинирование ресниц',
-    description: 'Изгиб и питание для ваших натуральных ресниц.',
-    price: 200,
-    duration: 75,
-    badge: 'Натуральный уход',
+    name: 'Архитектурная коррекция бровей (воск + пинцет)',
+    description: 'Моделирование формы воском или пинцетом по точкам лица.',
+    price: 70,
+    duration: 30,
     details: {
-      procedure: 'Создание красивого анатомического завитка на силиконовых валиках, окрашивание в черный цвет и насыщение кератином.',
-      longevity: '6 – 8 недель.',
+      procedure: 'Построение правильной архитектуры бровей по точкам лица, удаление лишних волосков воском и стерильным пинцетом.',
+      longevity: '2 – 3 недели.',
       aftercare: [
-        'Не мочить первые 24 часа. После суток ограничений нет — можно купаться в море и бассейне.',
+        'Не наносить тональный крем на свежедепилированную кожу несколько часов.',
       ],
       contraindications: [
-        'Воспалительные процессы глаз.',
+        'Повреждения кожи в зоне бровей.',
       ],
     },
   },
@@ -330,29 +372,11 @@ export const services: ServiceItem[] = [
     },
   },
   {
-    id: 'brow-correction',
-    category: 'brow',
-    name: 'Коррекция бровей',
-    description: 'Моделирование формы воском или пинцетом.',
-    price: 50,
-    duration: 30,
-    details: {
-      procedure: 'Построение правильной архитектуры бровей по точкам лица, удаление лишних волосков воском и стерильным пинцетом.',
-      longevity: '2 – 3 недели.',
-      aftercare: [
-        'Не наносить тональный крем на свежедепилированную кожу несколько часов.',
-      ],
-      contraindications: [
-        'Повреждения кожи в зоне бровей.',
-      ],
-    },
-  },
-  {
     id: 'lash-tinting',
     category: 'brow',
     name: 'Окрашивание ресниц',
     description: 'Окрашивание натуральных ресниц для эффекта без макияжа.',
-    price: 30,
+    price: 40,
     duration: 20,
     details: {
       procedure: 'Окрашивание верхних и нижних ресниц в насыщенный черный оттенок стойкой мягкой краской.',
@@ -382,6 +406,78 @@ export const serviceCategories: ServiceCategory[] = [
     tagline: 'Форма, насыщенный цвет и долговременная укладка',
     description: 'Комплексный уход за натуральными бровями и ресницами: ламинирование, коррекция, укладка и окрашивание.',
     services: services.filter((s) => s.category === 'brow'),
+  },
+];
+
+// Снятие ресниц (Ashdod Removal Services)
+export const removalServices: RemovalServiceItem[] = [
+  {
+    id: 'removal-own',
+    name: 'Снятие своей работы перед новым наращиванием',
+    description: 'Бесплатное бережное снятие перед повторным наращиванием у мастера.',
+    price: 0,
+    isFree: true,
+    badge: 'Бесплатно',
+  },
+  {
+    id: 'removal-other',
+    name: 'Снятие чужой работы при наращивании',
+    description: 'Бережное снятие кремовым ремувером — 30 ₪ вместо 50 ₪',
+    price: 30,
+    badge: 'Спеццена',
+  },
+  {
+    id: 'removal-standalone',
+    name: 'Снятие ресниц отдельно + уход',
+    description: 'Бережное снятие ресниц без последующего наращивания (включает уходовое питательное масло).',
+    price: 60,
+    duration: '20–30 мин',
+    badge: 'С уходом',
+  },
+];
+
+// Комбо-пакеты (Ashdod Combo Packages)
+export const comboPackages: ComboPackageItem[] = [
+  {
+    id: 'combo-express-eyes',
+    name: 'Express Eyes',
+    badge: 'Выгода 60 ₪',
+    composition: [
+      'Ламинирование ресниц (с окрашиванием и кератином)',
+      'Долговременная укладка бровей (коррекция + окрашивание)',
+    ],
+    price: '360 ₪',
+    regularPrice: '420 ₪',
+    savings: 'Экономия 60 ₪',
+    duration: '~90 мин',
+    description: 'Комплексный уход за взглядом за один сеанс: выразительный изгиб ресниц и четкая аккуратная форма бровей.',
+  },
+  {
+    id: 'combo-total-look',
+    name: 'Total Look',
+    badge: 'Выгода 60 ₪',
+    composition: [
+      'Наращивание ресниц: Классика (310 ₪) или 2D (360 ₪)',
+      'Оформление бровей: коррекция 70 ₪ + окрашивание 50 ₪ входят в оформление',
+    ],
+    price: '310 ₪ (с классикой) / 360 ₪ (с 2D)',
+    savings: 'Экономия 60 ₪',
+    note: 'Коррекция 70 ₪ + окрашивание 50 ₪ входят в оформление',
+    description: 'Идеальный дуэт: поресничное наращивание и архитектурное моделирование бровей с экономией 60 ₪.',
+  },
+  {
+    id: 'combo-welcome',
+    name: 'Знакомство с мастером',
+    badge: 'Первый визит',
+    composition: [
+      'Первое наращивание ресниц (любой желаемый объем)',
+      'Бесплатное снятие чужой работы',
+      'Щёточка в защитном футляре в подарок',
+    ],
+    price: 'по прайсу',
+    savings: 'Бонусы в подарок',
+    bonus: 'Бесплатное снятие чужой работы + щёточка в защитном футляре в подарок',
+    description: 'Специальный комплимент новым клиентам: бережное снятие старого наращивания бесплатно и полезный подарок.',
   },
 ];
 
